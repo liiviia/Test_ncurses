@@ -1,23 +1,25 @@
 #include <iostream>
 #include <ncurses.h>
 #include <stdlib.h>
+using namespace std; 
 
 int main(int argc, char ** argv){
-    initscr();
-    noecho(); 
-    cbreak(); 
+    initscr(); //inizializza la libreria ncurses
 
-    int yMax, xMax; 
-    getmaxyx(stdscr, yMax, xMax); 
-
-
-    WINDOW * inputwin = newwin (3, xMax-12, yMax-5, 5); 
-    box (inputwin, 0, 0); 
+    //stampa una stringa (const char *) to a window 
+    printw("HELLO WORDL!"); 
     refresh(); 
-    wrefresh(inputwin); 
 
+    int c = getch(); 
+
+    printw("%d", c) ;
+   
+   // noecho();  // nessuna echo dell'input
+    // cbreak(); //prende i caratteri in 
+                //input uno alla volta, senza attendere il \n 
+  
+   
     getch(); 
-    endwin();  
-
+    endwin(); 
     return 0; 
 }
